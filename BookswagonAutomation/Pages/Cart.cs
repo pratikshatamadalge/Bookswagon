@@ -10,7 +10,7 @@ namespace BookswagonAutomation.Pages
 {
     class Cart
     {
-        IWebDriver driver;
+        public IWebDriver driver;
 
         public Cart(IWebDriver driver)
         {
@@ -48,15 +48,16 @@ namespace BookswagonAutomation.Pages
         [FindsBy(How = How.Id, Using = "ctl00_cpBody_ShoppingCart_lvCart_savecontinue")]
         IWebElement saveAndContinueBtn1;
 
-        [FindsBy(How = How.Id, Using = "checkout-header")]
+        [FindsBy(How = How.Id, Using = "checkout-top")]
         IWebElement header;
 
-        [FindsBy(How = How.CssSelector, Using = "#ctl00_lnkbtnLogout")]
+        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Logout')]")]
         IWebElement logoutBtn;
 
         public void CartPage()
         {
             JsonReader reader = new JsonReader();
+            Thread.Sleep(1000);
             continueBtn.Click();
             receipientName.SendKeys(reader.receipentName);
             address.SendKeys(reader.address);
@@ -67,7 +68,8 @@ namespace BookswagonAutomation.Pages
             saveAndContinueBtn.Click();
             giftMessage.SendKeys(reader.giftmessage);
             saveAndContinueBtn1.Click();
-            logoutBtn.Click();
+            //driver.SwitchTo().Frame(header);
+            //logoutBtn.Click();
             Thread.Sleep(2000);
         }
     }

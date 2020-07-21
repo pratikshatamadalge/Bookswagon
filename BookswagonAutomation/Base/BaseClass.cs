@@ -9,13 +9,10 @@ namespace BookswagonAutomation
     public class BaseClass
     {
         public IWebDriver driver;
+
         [OneTimeSetUp]
         public void Setup()
         {
-            //using chrome options to disable unwanted notifications
-            ChromeOptions opt = new ChromeOptions();
-            opt.AddArguments("--disable-notifications");
-
             //Launch the chrome browser
             driver = new ChromeDriver();
 
@@ -26,7 +23,11 @@ namespace BookswagonAutomation
             driver.Manage().Window.Maximize();
 
             driver.Url = "https://www.bookswagon.com";
+
+            ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("F:\\VS\\BookswagonAutomation\\BookswagonAutomation\\TestScreenshot\\Test.png", ScreenshotImageFormat.Png);
         }
+
+
 
         [TearDown]
         public void Close()

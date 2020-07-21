@@ -10,7 +10,7 @@ namespace BookswagonAutomation.Pages
 {
     class SearchBook
     {
-        IWebDriver driver;
+        public IWebDriver driver;
 
         public SearchBook(IWebDriver driver)
         {

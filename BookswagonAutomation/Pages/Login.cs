@@ -10,7 +10,7 @@ namespace BookswagonAutomation.Pages
 {
     class Login:JsonReader
     {
-        IWebDriver driver;
+        public IWebDriver driver;
 
         public Login(IWebDriver driver)
         {
