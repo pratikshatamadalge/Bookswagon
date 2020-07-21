@@ -11,7 +11,12 @@ namespace BookswagonAutomation.Base
 {
     class TestCases:BaseClass
     {
-        ExtentReports extent= null;
+        //applied logger in console
+        private static readonly log4net.ILog log =
+            log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+
+        ExtentReports extent = null;
 
         [OneTimeSetUp]
         public void ExtentStart()
@@ -24,17 +29,22 @@ namespace BookswagonAutomation.Base
         [Test]
         public void BookswagonAutomationTest()
         {
-            ExtentTest test = extent.CreateTest("LoginTest");
+            ExtentTest test = extent.CreateTest("LoginTest").Info("Login Test Started");
             Login login = new Login(driver);
             login.LoginPage();
+            ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("F:\\VS\\BookswagonAutomation\\BookswagonAutomation\\TestScreenshot\\Login.png", ScreenshotImageFormat.Png);
+            log.Info("Login Test executed Successfully");
 
-            ExtentTest test1 = extent.CreateTest("SearchBookTest");
+            ExtentTest test1 = extent.CreateTest("SearchBookTest").Info("Search Book Test Started");
             SearchBook search = new SearchBook(driver);
             search.SearchBookPage();
+            ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("F:\\VS\\BookswagonAutomation\\BookswagonAutomation\\TestScreenshot\\Search.png", ScreenshotImageFormat.Png);
+            log.Info("Search Book Test Executed Successfully");
 
-            ExtentTest test2 = extent.CreateTest("PurchaseBookTest");
+            ExtentTest test2 = extent.CreateTest("PurchaseBookTest").Info("Purchase Book Test started");
             Cart cart = new Cart(driver);
             cart.CartPage();
+            log.Info("Book purchase test Executed successfully");
 
             ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("F:\\VS\\BookswagonAutomation\\BookswagonAutomation\\TestScreenshot\\PurchaseBook.png", ScreenshotImageFormat.Png);
         }
