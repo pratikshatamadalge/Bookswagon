@@ -16,14 +16,19 @@ namespace BookswagonAutomation
         {
             try
             {
-                //Launch the chrome browser
-                driver = new ChromeDriver();
+                //Pre requisits to open chrome .
+                ChromeOptions options = new ChromeOptions();
+                options.AddArguments("start-maximized");
+                options.AddArguments("-incognito");
 
+                //Launch the chrome browser
+                driver = new ChromeDriver(options);
+                
                 //Using implicitly wait 
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
 
                 //Maximizing the window
-                driver.Manage().Window.Maximize();
+               // driver.Manage().Window.Maximize();
 
                 driver.Url = "https://www.bookswagon.com";
 
