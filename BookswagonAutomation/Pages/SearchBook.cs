@@ -27,12 +27,6 @@ namespace BookswagonAutomation.Pages
         [FindsBy(How = How.XPath, Using = "//div[1]//div[4]//div[5]//a[1]//input[1]")]
         IWebElement buyBtn;
 
-        [FindsBy(How = How.XPath, Using = "//iframe[@class='cboxIframe']")]
-        public IWebElement placeOrderFrame;
-
-        [FindsBy(How = How.Id, Using = "BookCart_lvCart_imgPayment")]
-        public IWebElement placeorder;
-
         public void SearchBookPage()
         {
             JsonReader reader = new JsonReader();
@@ -40,8 +34,6 @@ namespace BookswagonAutomation.Pages
             searchBtn.Click();
             Thread.Sleep(1000);
             buyBtn.Click();
-            driver.SwitchTo().Frame(placeOrderFrame);
-            placeorder.Click();
             Thread.Sleep(1000);
         }
     }

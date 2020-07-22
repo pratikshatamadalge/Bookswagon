@@ -43,7 +43,7 @@ namespace BookswagonAutomation.Base
                 log.Info("Search Book Test Executed Successfully");
 
                 ExtentTest test2 = extent.CreateTest("PurchaseBookTest").Info("Purchase Book Test started");
-                Cart cart = new Cart(driver);
+                ShoppingCart cart = new ShoppingCart(driver);
                 cart.CartPage();
                 log.Info("Book purchase test Executed successfully");
 
