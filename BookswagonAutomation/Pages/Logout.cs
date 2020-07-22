@@ -15,9 +15,6 @@ namespace BookswagonAutomation.Pages
             PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.Id, Using = "checkout-top")]
-        IWebElement header;
-
         [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Logout')]")]
         IWebElement logoutBtn;
 
