@@ -31,39 +31,39 @@ namespace BookswagonAutomation.Base
         public void BookswagonAutomationTest()
         {
             try {
-                ExtentTest test = extent.CreateTest("LoginTest").Info("Login Test Started");
+                ExtentTest loginTest = extent.CreateTest("LoginTest").Info("Login Test Started");
                 Login login = new Login(driver);
                 login.LoginPage();
                 ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("F:\\VS\\BookswagonAutomation\\BookswagonAutomation\\TestScreenshot\\Login.png", ScreenshotImageFormat.Png);
                 log.Info("Login Test executed Successfully");
 
-                ExtentTest test1 = extent.CreateTest("SearchBookTest").Info("Search Book Test Started");
+                ExtentTest searchBookTest = extent.CreateTest("SearchBookTest").Info("Search Book Test Started");
                 SearchBook search = new SearchBook(driver);
                 search.SearchBookPage();
                 ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("F:\\VS\\BookswagonAutomation\\BookswagonAutomation\\TestScreenshot\\Search.png", ScreenshotImageFormat.Png);
                 log.Info("Search Book Test Executed Successfully");
 
-                ExtentTest test2 = extent.CreateTest("ShoppingCartTest").Info("Purchase Book Test started");
+                ExtentTest shoppingCartTest = extent.CreateTest("ShoppingCartTest").Info("Purchase Book Test started");
                 ShoppingCart cart = new ShoppingCart(driver);
                 cart.CartPage();
                 log.Info("Shopping Cart Test executed successfully");
 
-                ExtentTest test3 = extent.CreateTest("CheckoutLoginTest").Info("Checkout Login Test started");
+                ExtentTest checkoutLoginTest = extent.CreateTest("CheckoutLoginTest").Info("Checkout Login Test started");
                 CheckoutLogin checkout = new CheckoutLogin(driver);
                 checkout.CheckoutLoginPage();
                 log.Info("Checkout Login Test Executed successfully");
 
-                ExtentTest test4 = extent.CreateTest("ShippingAddressTest").Info("Shipping Address Test started");
+                ExtentTest shippingAddressTest = extent.CreateTest("ShippingAddressTest").Info("Shipping Address Test started");
                 ShippingAddress address = new ShippingAddress(driver);
                 address.ShippingAddressPage();
                 log.Info("Shipping Address Test Executed Successfully");
 
-                ExtentTest test5 = extent.CreateTest("ViewShoppingCartTest").Info("View shopping cart Test started");
+                ExtentTest viewShoppingCartTest = extent.CreateTest("ViewShoppingCartTest").Info("View shopping cart Test started");
                 ViewShoppingCart view = new ViewShoppingCart(driver);
                 view.ViewShoppingCartPage();
                 log.Info("View Shopping Cart Test Executed Successfully");
 
-                ExtentTest test6 = extent.CreateTest("LogoutTest").Info("Logout Test started");
+                ExtentTest logoutTest = extent.CreateTest("LogoutTest").Info("Logout Test started");
                 Logout logout = new Logout(driver);
                 logout.LogoutPage();
                 log.Info("Logout Test Executed Successfully");
