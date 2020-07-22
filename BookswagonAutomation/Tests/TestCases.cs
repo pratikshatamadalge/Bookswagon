@@ -29,26 +29,31 @@ namespace BookswagonAutomation.Base
         [Test]
         public void BookswagonAutomationTest()
         {
-            ExtentTest test = extent.CreateTest("LoginTest").Info("Login Test Started");
-            Login login = new Login(driver);
-            login.LoginPage();
-            ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("F:\\VS\\BookswagonAutomation\\BookswagonAutomation\\TestScreenshot\\Login.png", ScreenshotImageFormat.Png);
-            log.Info("Login Test executed Successfully");
+            try {
+                ExtentTest test = extent.CreateTest("LoginTest").Info("Login Test Started");
+                Login login = new Login(driver);
+                login.LoginPage();
+                ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("F:\\VS\\BookswagonAutomation\\BookswagonAutomation\\TestScreenshot\\Login.png", ScreenshotImageFormat.Png);
+                log.Info("Login Test executed Successfully");
 
-            ExtentTest test1 = extent.CreateTest("SearchBookTest").Info("Search Book Test Started");
-            SearchBook search = new SearchBook(driver);
-            search.SearchBookPage();
-            ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("F:\\VS\\BookswagonAutomation\\BookswagonAutomation\\TestScreenshot\\Search.png", ScreenshotImageFormat.Png);
-            log.Info("Search Book Test Executed Successfully");
+                ExtentTest test1 = extent.CreateTest("SearchBookTest").Info("Search Book Test Started");
+                SearchBook search = new SearchBook(driver);
+                search.SearchBookPage();
+                ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("F:\\VS\\BookswagonAutomation\\BookswagonAutomation\\TestScreenshot\\Search.png", ScreenshotImageFormat.Png);
+                log.Info("Search Book Test Executed Successfully");
 
-            ExtentTest test2 = extent.CreateTest("PurchaseBookTest").Info("Purchase Book Test started");
-            Cart cart = new Cart(driver);
-            cart.CartPage();
-            log.Info("Book purchase test Executed successfully");
+                ExtentTest test2 = extent.CreateTest("PurchaseBookTest").Info("Purchase Book Test started");
+                Cart cart = new Cart(driver);
+                cart.CartPage();
+                log.Info("Book purchase test Executed successfully");
 
-            ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("F:\\VS\\BookswagonAutomation\\BookswagonAutomation\\TestScreenshot\\PurchaseBook.png", ScreenshotImageFormat.Png);
-        }
-
+                ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("F:\\VS\\BookswagonAutomation\\BookswagonAutomation\\TestScreenshot\\PurchaseBook.png", ScreenshotImageFormat.Png);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            }
         [OneTimeTearDown]
         public void ExtentClose()
         {

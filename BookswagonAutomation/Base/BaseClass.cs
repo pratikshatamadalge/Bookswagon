@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.Features;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -13,21 +14,25 @@ namespace BookswagonAutomation
         [OneTimeSetUp]
         public void Setup()
         {
-            //Launch the chrome browser
-            driver = new ChromeDriver();
+            try
+            {
+                //Launch the chrome browser
+                driver = new ChromeDriver();
 
-            //Using implicitly wait 
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+                //Using implicitly wait 
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
 
-            //Maximizing the window
-            driver.Manage().Window.Maximize();
+                //Maximizing the window
+                driver.Manage().Window.Maximize();
 
-            driver.Url = "https://www.bookswagon.com";
+                driver.Url = "https://www.bookswagon.com";
 
-            ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("F:\\VS\\BookswagonAutomation\\BookswagonAutomation\\TestScreenshot\\Test.png", ScreenshotImageFormat.Png);
+                ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("F:\\VS\\BookswagonAutomation\\BookswagonAutomation\\TestScreenshot\\Test.png", ScreenshotImageFormat.Png);
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
-
-
 
         [TearDown]
         public void Close()

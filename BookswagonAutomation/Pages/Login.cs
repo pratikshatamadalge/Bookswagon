@@ -8,14 +8,14 @@ using System.Threading;
 
 namespace BookswagonAutomation.Pages
 {
-    class Login:JsonReader
+    class Login : JsonReader
     {
         public IWebDriver driver;
 
         public Login(IWebDriver driver)
         {
-          this.driver = driver;
-          PageFactory.InitElements(driver,this);
+            this.driver = driver;
+            PageFactory.InitElements(driver, this);
         }
 
         [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Login')]")]
