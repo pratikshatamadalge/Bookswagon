@@ -15,7 +15,7 @@ namespace BookswagonAutomation.Pages
             PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Logout')]")]
+        [FindsBy(How = How.Id, Using = "ctl00_lnkbtnLogout")]
         IWebElement logoutBtn;
 
         public void LogoutPage()

@@ -3,6 +3,7 @@ using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace BookswagonAutomation.Pages
 {
@@ -16,11 +17,12 @@ namespace BookswagonAutomation.Pages
             PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.ClassName, Using = "btn-red")]
+        [FindsBy(How = How.XPath, Using = "//a[@class='btn-red']")]
         IWebElement continueBtn;
 
         public void CheckoutLoginPage()
         {
+            Thread.Sleep(2000);
             continueBtn.Click();
         }
     }
